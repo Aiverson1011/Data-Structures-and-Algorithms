@@ -55,6 +55,17 @@ namespace reverseArray
 			return myArray;
 		}
 
+		/// <summary>
+		/// Output the array to the console
+		/// </summary>
+		/// <param name="myArray">The string array to be outputted</param>
+		static void OutputArray(string[] myArray)
+		{
+			for (int i = 0; i < myArray.Length; i++)
+			{
+				Console.WriteLine(myArray[i]);
+			}
+		}
 
 
 	}
