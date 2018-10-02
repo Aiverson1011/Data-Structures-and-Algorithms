@@ -21,7 +21,7 @@ namespace reverseArray
 		/// </summary>
 		/// <param name="myArray">string array to be reversed</param>
 		/// <returns>Newly reversed array</returns>
-		static string[] ArrayReverse(string[] myArray)
+		static string[] ReverseArray(string[] myArray)
 		{
 			Console.WriteLine("Array Reverse");
 			string[] reversed = new string[myArray.Length];
