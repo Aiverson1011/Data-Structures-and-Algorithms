@@ -35,5 +35,27 @@ namespace reverseArray
 		}
 
 
+		/// <summary>
+		/// Reverse and array in place with better space/time
+		/// </summary>
+		/// <param name="myArray">string array to be reversed</param>
+		/// <returns>the newly reversed array</returns>
+		static string[] ReverseInPlace(string[] myArray)
+		{
+			Console.WriteLine("In Place");
+			string temp;
+
+			for (int i = 0; i < myArray.Length / 2; i++)
+			{
+				temp = myArray[myArray.Length - 1 - i];
+				myArray[myArray.Length - 1 - i] = myArray[i];
+				myArray[i] = temp;
+			}
+
+			return myArray;
+		}
+
+
+
 	}
 }
