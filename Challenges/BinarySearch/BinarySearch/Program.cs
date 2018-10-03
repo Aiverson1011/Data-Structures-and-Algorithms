@@ -7,6 +7,12 @@ namespace BinarySearch
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
+
+			int[] lost = { 4, 8, 15, 16, 23, 42 };
+
+			//Console.WriteLine(BinarySearchIterative(lost, 15));
+			Console.WriteLine(BinarySearchRecursive(lost, 15));
+
 		}
 
 		/// <summary>
@@ -41,19 +47,56 @@ namespace BinarySearch
 				else
 				{
 					// return the middle index + 1 to get the actual index number
-					return ++middle;
+					return middle;
 				}
 			}
 
 			return -1;
 		}
 
+		/// <summary>
+		/// Recursive approach to binary search of a sorted array
+		/// </summary>
+		/// <param name="binaryArray">sorted binary array</param>
+		/// <param name="value">value to search for</param>
+		/// <returns></returns>
 		static int BinarySearchRecursive(int[] binaryArray, int value)
 		{
+			int index = BinarySearchRecursive(binaryArray, value, 0, binaryArray.Length);
+			return index;
+		}
 
+		/// <summary>
+		/// Recursive helper method
+		/// </summary>
+		/// <param name="binaryArray">current binary array that is being searched</param>
+		/// <param name="value">value to search for</param>
+		/// <param name="min">lowest index to search</param>
+		/// <param name="max">largest index to search</param>
+		/// <returns></returns>
+		static int BinarySearchRecursive(int[] binaryArray, int value, int min, int max)
+		{
+			int midpoint = (min + max) / 2;
 
+			// base case
+			if (min > max)
+			{
+				return -1;
+			}
 
-			return -1;
+			if (binaryArray[midpoint] > value)
+			{
+				return BinarySearchRecursive(binaryArray, value, min, midpoint - 1);
+			}
+			else if (binaryArray[midpoint] < value)
+			{
+				return BinarySearchRecursive(binaryArray, value, midpoint + 1, max);
+			}
+			else
+			{
+				return midpoint;
+
+			}
 		}
 	}
 }
